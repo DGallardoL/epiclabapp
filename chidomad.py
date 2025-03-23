@@ -913,7 +913,8 @@ def mostrar_noticias_simuladas():
             st.markdown("<hr style='margin: 15px 0; opacity: 0.3;'>", unsafe_allow_html=True)
 
 # Configuración de OpenAI (en producción, usar variables de entorno para las claves)
-openai.api_key = "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"
+# Usar secrets para la clave API de OpenAI
+openai.api_key = st.secrets.get("openai", {}).get("api_key", "")
 
 # Constantes para el asistente
 SYSTEM_PROMPT = """
